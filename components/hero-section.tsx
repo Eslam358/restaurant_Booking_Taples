@@ -38,46 +38,50 @@ const cuisines = [
 ]
 // *******************
 export function HeroSection() {
-  
+
   const { t, language } = useApp()
   useEffect(() => {
-    
+
     console.log("hhhhhhhhhhhh", language);
- 
+
   }, []);
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        {/* //************ */}
-        <Carousel
-          key={language}
-          opts={{
-            align: "start",
-            loop: true,
-            direction: language === "ar" ? "rtl" : "ltr",
-          }}
-          plugins={[
-            Autoplay({ delay: 5000})
-
-          ]}
-          className=" w-full h-full"
-        >
-          <CarouselContent className="absolute inset-0 z-0">
-            {cuisines.map((cuisine) => (
-              <CarouselItem key={cuisine.id} className="basis-full">
-                <img src={cuisine.image} alt="Restaurant interior" className="w-full h-full object-cover" />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-
-
-
-
+      {/* //************ */}
+      <Carousel
+        key={language}
+        opts={{
+          align: "start",
+          loop: true,
+          direction: language === "ar" ? "rtl" : "ltr",
+        }}
+        // plugins={[Autoplay({ delay: 3000 })]}
+        className="w-full h-full min-h-screen overflow-hidden absolute inset-0 z-0  "
+      >
+        <CarouselContent className="absolute inset-0 z-0  h-full !transform-none">
+          {cuisines.map((cuisine) => (
+            <CarouselItem
+              key={cuisine.id}
+              className="!p-0 !m-0 w-full h-full flex-shrink-0 basis-full"
+            >
+              <img
+                src={cuisine.image}
+                alt="Restaurant interior"
+                className="w-full h-full object-cover block"
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/80" />
-      </div>
+      </Carousel>
+
+
+
+
+
+
 
 
       {/* Content */}

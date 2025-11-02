@@ -43,7 +43,7 @@ export default function cardProps({cardProps, title,desc}: {cardProps: CardProps
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">{desc}</p>
                 </div>
 
-                <div>
+                <div className="overflow-hidden px-0 md:px-9">
 
                     <Carousel
                         key={lang}
@@ -94,8 +94,8 @@ export default function cardProps({cardProps, title,desc}: {cardProps: CardProps
                             ))}
 
                         </CarouselContent>
-                        <CarouselPrevious />
-                        <CarouselNext />
+                        <CarouselPrevious className="-left-9" />
+                        <CarouselNext  className="-right-9" />
                     </Carousel>
 
 

@@ -21,10 +21,10 @@ export function AuthButtons() {
     setAuthMode("signup")
     setIsAuthModalOpen(true)
   }
+  return <UserMenu />
 
-  if (session) {
-    return <UserMenu />
-  }
+  // if (session) {
+  // }
 
   return (
     <>

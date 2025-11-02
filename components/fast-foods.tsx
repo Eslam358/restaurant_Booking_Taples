@@ -42,7 +42,7 @@ export function FastFood() {
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">{t("cuisinesSubtitle")}</p>
                 </div>
 
-                <div className="">
+                <div className="overflow-hidden px-0 md:px-9">
                     <Carousel
                         key={lang}
                         opts={{
@@ -54,14 +54,14 @@ export function FastFood() {
                             Autoplay({ delay: 3000, stopOnInteraction: true })
 
                         ]}
-                        className="w-full "
+                        className="w-full  "
                     >
                         <CarouselContent>
                             {cuisines.map((cuisine) => (
                                 <CarouselItem key={cuisine.id} className="md:basis-1/2 lg:basis-1/3">
                                     <div className="p-1">
 
-                                        <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow">
+                                        <Card className="overflow-hidden group cursor-pointer max-w-md mx-auto hover:shadow-lg transition-shadow">
                                             <div className="relative h-64 overflow-hidden">
                                                 <img
                                                     src={cuisine.image || "/placeholder.svg"}
@@ -79,8 +79,8 @@ export function FastFood() {
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
-                        <CarouselPrevious />
-                        <CarouselNext />
+                        <CarouselPrevious className="-left-9" />
+                        <CarouselNext  className="-right-9" />
                     </Carousel>
 
                 </div>

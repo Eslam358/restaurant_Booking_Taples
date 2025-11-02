@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { useApp } from "@/contexts/app-context"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import Link from "next/link"
+import Card from "@/components/card"
 import { useEffect, useState } from "react"
 import { useCard } from "@/contexts/data-context";
 import { AuthButtons } from "./auth/auth-buttons"
@@ -14,32 +15,26 @@ const menuItems: Array<"home" | "menu" | "about" | "contact"> = [
   "menu",
   "about",
   "contact",
+
 ];
 
-type CartItem = { [productId: string]: number }[];
 
 type MenuItem = "home" | "menu" | "about" | "contact";
 export function Header() {
   const { theme, language, toggleTheme, setLanguage, t } = useApp()
 
-  const { cart: card } = useCard();
-  const [cart, setCart] = useState<CartItem>(card)
-  const cartProducts = cart[0] || {};        // { "1": 2, "4": 1 ... }
-  const cartIds = Object.keys(cartProducts).length;
-  useEffect(() => {
-    setCart(card)
-  }, [card])
+
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border ">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-2  md:gap-8">
+        <div className="flex items-center gap-1  sm:gap-2  md:gap-8">
           <div className="md:hidden">
             <DropdownMenu dir={language === "ar" ? "rtl" : "ltr"}>
               <DropdownMenuTrigger asChild>
                 <button
                   type="button"
-                  className="h-12 w-12 flex items-center justify-center rounded-md hover:bg-accent"
+                  className="h-10 w-10  sm:h-12 sm:w-12 flex items-center justify-center rounded-md hover:bg-accent"
                 >
                   <Menu className="!h-6 !w-6" />
                 </button>
@@ -76,7 +71,7 @@ export function Header() {
           </nav>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-0  sm:gap-2">
           {/* Language Switcher */}
           <DropdownMenu dir={language === "ar" ? "rtl" : "ltr"}>
             <DropdownMenuTrigger asChild>
@@ -97,17 +92,10 @@ export function Header() {
           <Button variant="ghost" size="icon" onClick={toggleTheme}>
             {theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
           </Button>
+          <span className="hidden sm:block">
 
-          <Link
-            href="/cart"
-            className="relative  p-2 "
-          >
-            <span className="text-xl hover:bg-accent  rounded-md  'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 text-white  p-2">🛒</span>
-
-            <span className="absolute -top-1 -right-1 bg-primary text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
-              {cartIds || 0}
-            </span>
-          </Link>
+            <Card />
+          </span>
 
           <AuthButtons />
           {/* Book Table Button */}

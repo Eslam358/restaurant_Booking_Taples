@@ -39,7 +39,7 @@ export default function RootLayout({
             </CardProvider>
             </AppProvider>
         </Suspense>
-        <Analytics />
+        {/* <Analytics /> */}
       </body>
     </html>
   )
