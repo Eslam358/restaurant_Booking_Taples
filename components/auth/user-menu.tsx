@@ -80,7 +80,7 @@ export function UserMenu() {
 
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={signOut}
+              <DropdownMenuItem onClick={openSignup}
               >
                 <Settings className="mr-2 h-4 w-4" />
 

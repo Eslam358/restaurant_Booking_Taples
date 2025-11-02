@@ -1,7 +1,7 @@
 // components/auth/auth-modal.tsx
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { LoginForm } from "./login-form"
 import { SignupForm } from "./signup-form"
@@ -12,8 +12,14 @@ interface AuthModalProps {
   defaultMode?: "login" | "signup"
 }
 
-export function AuthModal({ isOpen, onClose, defaultMode = "login" }: AuthModalProps) {
+export function AuthModal({ isOpen, onClose, defaultMode = "signup" }: AuthModalProps) {
+  
   const [mode, setMode] = useState<"login" | "signup">(defaultMode)
+  useEffect(() => {
+    setMode(defaultMode)
+  
+  }, [defaultMode]);
+  console.log(mode,"..................",defaultMode)
 
   const toggleMode = () => {
     setMode(mode === "login" ? "signup" : "login")
