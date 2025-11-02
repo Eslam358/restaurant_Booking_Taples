@@ -26,7 +26,10 @@ export function UserMenu() {
 
   const handleSignOut = async () => {
 
+    if (session) {
+      console.log("@@@@@@@@@@@@@@@@@@@@2", session?.user?.user_metadata?.img_url);
 
+    }
 
     await signOut()
     setIsOpen(false)
@@ -47,11 +50,14 @@ export function UserMenu() {
     <>
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
         <DropdownMenuTrigger asChild>
+
           <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-600">
-              <User className="h-4 w-4 text-white" />
+            <div className={`flex h-8 w-8 items-center justify-center rounded-full ${session ? "border-2 border-amber-700" : ""} `}>
+              <User className={`h-4 w-4 `} />
             </div>
           </Button>
+
+
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56" align="end" forceMount>
           <div className="flex items-center justify-start gap-2 p-2">
@@ -106,7 +112,7 @@ export function UserMenu() {
           }
           <DropdownMenuSeparator />
           <DropdownMenuItem className="flex gap-3 sm:hidden">
-            
+
             <span className="-ml-3">
 
               <Card />

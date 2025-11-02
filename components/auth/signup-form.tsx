@@ -1,19 +1,21 @@
 // components/auth/signup-form.tsx
 "use client"
 
-import type React from "react"
+import type React  from "react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useAuth } from "@/hooks/useAuth"
-import { Eye, EyeOff, Mail, Lock, User } from "lucide-react"
+import { Eye, EyeOff, Mail, Lock, User, ImageDown } from "lucide-react"
 
 interface SignupFormProps {
   onToggleMode: () => void
   onClose?: () => void
 }
+
+
 
 export function SignupForm({ onToggleMode, onClose }: SignupFormProps) {
   const { signUp, loading } = useAuth()
@@ -24,6 +26,10 @@ export function SignupForm({ onToggleMode, onClose }: SignupFormProps) {
     password: "",
     confirmPassword: "",
   })
+
+
+
+ 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData(prev => ({
@@ -44,6 +50,7 @@ export function SignupForm({ onToggleMode, onClose }: SignupFormProps) {
       name: formData.name,
       email: formData.email,
       password: formData.password,
+
     })
     
     if (result.success && onClose) {

@@ -3,6 +3,7 @@ export interface AuthFormData {
     email: string
     password: string
     name?: string
+    img_file?:File
   }
   
   export interface AuthResponse {

@@ -33,7 +33,7 @@ export function LoginForm({ onToggleMode, onClose }: LoginFormProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const result = await signIn(formData)
-
+    
     if (result.success && onClose) {
       onClose()
     }
@@ -56,9 +56,7 @@ export function LoginForm({ onToggleMode, onClose }: LoginFormProps) {
                 name="email"
                 type="email"
                 placeholder="Enter your email"
-                value="eslam900aa@gmail.com"
-                // value={formData.email}
-
+                value={formData.email}
                 onChange={handleChange}
                 className="pl-10"
                 required
@@ -74,9 +72,8 @@ export function LoginForm({ onToggleMode, onClose }: LoginFormProps) {
                 id="password"
                 name="password"
                 type={showPassword ? "text" : "password"}
-                value="Eslam@51234"
                 placeholder="Enter your password"
-                // value={formData.password}
+                value={formData.password}
                 onChange={handleChange}
                 className="pl-10 pr-10"
                 required

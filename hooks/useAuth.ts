@@ -10,7 +10,12 @@ export function useAuth() {
   const [loading, setLoading] = useState(false)
   const [user, setUser] = useState(null)
 
+
+
+
   const signUp = async (formData: AuthFormData): Promise<AuthResponse> => {
+
+
     try {
       setLoading(true)
       
@@ -20,9 +25,12 @@ export function useAuth() {
         options: {
           data: {
             name: formData.name,
+            img_url: "imageUrl" 
           },
         },
       })
+
+
 
       if (error) throw error
 
