@@ -52,8 +52,8 @@ export function UserMenu() {
         <DropdownMenuTrigger asChild>
 
           <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-            <div className={`flex h-8 w-8 items-center justify-center rounded-full ${session ? "border-2 border-amber-700" : ""} `}>
-              <User className={`h-4 w-4 `} />
+            <div className={`flex h-8 w-8 items-center justify-center rounded-full  `}>
+              <User className={`h-4 w-4 ${session ? "text-amber-700" : ""}`} />
             </div>
           </Button>
 
