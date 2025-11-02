@@ -53,7 +53,7 @@ export function UserMenu() {
 
           <Button variant="ghost" className="relative h-8 w-8 rounded-full">
             <div className={`flex h-8 w-8 items-center justify-center rounded-full  `}>
-              <User className={`h-4 w-4 ${session ? "text-amber-700" : ""}`} />
+              <User className={`h-5 w-5 font-bold ${session ? "text-amber-700" : ""}`} />
             </div>
           </Button>
 
